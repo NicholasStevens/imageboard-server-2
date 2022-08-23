@@ -11,8 +11,12 @@ router.get("/", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const { title, url } = req.body;
-    const newImage = await Images.create({ title, url });
-    res.send(newImage);
+    if (!title || !url) {
+      res.status(400).send("Please provide all required fields");
+    } else {
+      const newImage = await Images.create({ title, url });
+      res.json(newImage);
+    }
   } catch (e) {
     console.log(e);
     next(e);
