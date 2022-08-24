@@ -14,7 +14,6 @@ app.use("/images", imageRouter);
 app.use("/images/auth/messy", imageRouter);
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
-app.use("/auth/test-auth", authRouter);
 
 app.listen(PORT, () => {
   console.log(`listening on port: ${PORT}`);
