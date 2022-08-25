@@ -24,7 +24,7 @@ async function auth(req, res, next) {
     } catch (e) {
       res
         .status(400)
-        .send({ message: `Error: ${error.name} message: ${error.message}` });
+        .send({ message: `Error: ${e.name} message: ${e.message}` });
     }
   } else {
     res.status(400).send({ message: "Please provide valid credentials" });
